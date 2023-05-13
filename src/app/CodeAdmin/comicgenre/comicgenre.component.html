@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          Thêm Thể Loại Truyện
+        </div>
+        <div class="card-body">
+          <div class="form-control">
+            <label>Tên Thể Loại</label>
+            <input class="form-control" [(ngModel)]="genre_name" placeholder="Nhập vào tên thể loại">
+            <label>Mô Tả</label>
+            <input class="form-control" [(ngModel)]="describe" placeholder="Nhập vào mô tả">
+          </div>
+        </div>
+        <div class="card-footer text-end">
+          <button class="btn btn-primary" (click)="addGenreComic()">Thêm Mới</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          Danh Sách Thể Loại truyện
+        </div>
+        <div class="card-body">
+          <table class="table table-striped table table-bordered">
+            <thead>
+              <tr>
+                <th class="text-center align-middle">#</th>
+                <th class="text-center align-middle">Tên Thể Loại</th>
+                <th class="text-center align-middle">Mô Tả</th>
+                <th class="text-center align-middle">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let genre of listComicGenre; let i = index">
+                <th class="text-center align-middle">{{i + 1}}</th>
+                <td class="text-center align-middle">{{genre.genre_name}}</td>
+                <td class="text-center align-middle">{{genre.describe}}</td>
+                <td class="text-nowrap align-middle">
+                  <button class="btn btn-danger" (click)="deleteGenreComic(genre)">Xoá</button>
+                  <button class="btn btn-info" (click)="getDetailGenreComic(genre)" data-bs-toggle="modal" data-bs-target="#exampleModal">Sửa</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-control">
+                      <input class="form-control" type="hidden" [(ngModel)]="edit.id">
+                      <label>Tên Thể Loại</label>
+                      <input class="form-control" [(ngModel)]="edit.genre_name">
+                      <label>Mô Tả</label>
+                      <input class="form-control" [(ngModel)]="edit.describe">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" (click)="editGenreComic()">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
