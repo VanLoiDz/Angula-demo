@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ComicgenreComponent } from './CodeAdmin/comicgenre/comicgenre.component';
 import { ComicComponent } from './CodeAdmin/comic/comic.component';
+import { HahahaComponent } from './hahaha/hahaha.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ComicComponent } from './CodeAdmin/comic/comic.component';
     FooterComponent,
     ComicgenreComponent,
     ComicComponent,
+    HahahaComponent,
   ],
   imports: [
     BrowserModule,
